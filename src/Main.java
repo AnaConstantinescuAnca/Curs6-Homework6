@@ -3,7 +3,7 @@ import javax.sound.midi.Soundbank;
 public class Main {
 
     public static void main(String[] args) {
-       //ex2
+        //ex2
         Person person1 = new Person();
         person1.setName("Mihai");
         person1.setAge(40);
@@ -23,13 +23,13 @@ public class Main {
         System.out.println(person3.getName() + person3.getAge() + person3.isMarried());
 
         //ex 4
-        Product product1 = new Product("creion",10.3,800,"papetarie");
-        Product product2 = new Product("pix", 23.5,3000,"papetarie");
-        Product product3 = new Product("surubelnita",12.3,0,"unelte");
+        Product product1 = new Product("creion", 10.3, 800, "papetarie");
+        Product product2 = new Product("pix", 23.5, 3000, "papetarie");
+        Product product3 = new Product("surubelnita", 12.3, 0, "unelte");
 
-        System.out.println(String.format("Produsul %s cu pretul de %f in cantitate de %d  face parte din categoria %s", product1.getName(), product1.getPrice(),product1.getQuantity(), product1.getCategory()));
-        System.out.println(String.format("Produsul %s cu pretul de %f in cantitate de %d  face parte din categoria %s", product2.getName(), product2.getPrice(),product2.getQuantity(), product2.getCategory()));
-        System.out.println(String.format("Produsul %s cu pretul de %f in cantitate de %d  face parte din categoria %s", product3.getName(), product3.getPrice(),product3.getQuantity(), product3.getCategory()));
+        System.out.println(String.format("Produsul %s cu pretul de %f in cantitate de %d  face parte din categoria %s", product1.getName(), product1.getPrice(), product1.getQuantity(), product1.getCategory()));
+        System.out.println(String.format("Produsul %s cu pretul de %f in cantitate de %d  face parte din categoria %s", product2.getName(), product2.getPrice(), product2.getQuantity(), product2.getCategory()));
+        System.out.println(String.format("Produsul %s cu pretul de %f in cantitate de %d  face parte din categoria %s", product3.getName(), product3.getPrice(), product3.getQuantity(), product3.getCategory()));
 
 
         System.out.println("Stocul pentru " + product1.getName() + " este " + product1.hasStock());
@@ -43,20 +43,59 @@ public class Main {
 
 
         //ex 5
-
-        Bottle bottle = new Bottle(2,1,false);
-
+        System.out.println("Bottle exercise");
         Bottle bottle1 = new Bottle();
+        //verificam starea sticlei deschisa sau inchisa
+        System.out.println("Sticla este deschisa? " + bottle1.isOpen() );
+        boolean stateOfBottle = bottle1.isOpen();
+        if(!stateOfBottle) {
+            //deschidem sticla
+            bottle1.schimbaStare(); // deschidem sticla
+        }
 
-        System.out.println("Bottle has capacity " + bottle.getTotalCapacity());
-        System.out.println("Bottle has more licquid is " +bottle.isMoreLiquid(6));
+        int specificAmount = 1;
+        // Incercam sa bem o cantitate mai mare decat exista in sticla
+        System.out.println(bottle1.drinksLiquid(2) + " litri");
+        //ichidem sticla
+        System.out.println(bottle1.closeBottle());
+        //incercam sa bem dintr-o sticla inchisa
+        System.out.println(bottle1.drinksLiquid(1) + " litri");
+        //
 
-        System.out.println("Bottle 1 has capacity " +bottle1.getTotalCapacity());
-        System.out.println("Bottle 1 has more licquid is " +bottle.isMoreLiquid(1));
+        stateOfBottle = bottle1.isOpen();
+        if(!stateOfBottle) {
+            //deschidem sticla
+            bottle1.schimbaStare(); // deschidem sticla
+        }
+        else {
+            // bem din ea ca este deschisa
+        }
 
+        System.out.println("Empty capacity " + bottle1.emptyCapacity());
 
-        System.out.println(bottle.openBottle());
-        System.out.println(bottle.drinksLiquid(12));
+        stateOfBottle = bottle1.isOpen();
+        //System.out.println(bottle1.drinksLiquid(12));
+        if(!stateOfBottle) {
+            //deschidem sticla
+            bottle1.schimbaStare(); // deschidem sticla
+        }
+        else {
+            // bem din ea ca este deschisa
+        }
+       //incercam sa bem mai mult decat mai este in sticla
+        System.out.println(bottle1.drinksLiquid(3));
+        //intrebam daca mai avem lichid in sticla
+        System.out.println("Mai exista lichid in sticla ? " +  bottle1.hasLiquid());
+        //cat lichid mai este in sticla
+        System.out.println("Cantitatea ramasa in sticla este de " + bottle1.getAvailableLiquid());
 
+        //bem restul de lichid ramas
+        System.out.println("mai bem restul de lichid din sticla " + bottle1.drinksLiquid(bottle1.getAvailableLiquid()));
+
+        //sticla este goala
+        System.out.println("In sticla a mai ramas " + bottle1.getAvailableLiquid());
+
+        //inchidem sticla
+        System.out.println(bottle1.closeBottle());
     }
 }
