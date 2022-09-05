@@ -10,13 +10,15 @@ public class Person {
         return String.format("Persoana cu numele %s", name);
     }
 
+    public String getAge() {
+        return String.format(" are %d de ani", age);
+    }
+
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getAge() {
-        return String.format(" are %d de ani", age);
-    }
 
     public void setAge(int age) {
         this.age = age;

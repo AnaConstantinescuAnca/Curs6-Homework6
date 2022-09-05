@@ -39,7 +39,7 @@ public class Main {
 
         System.out.println("Categoria pentru produsul " + product1.getName() + " este " + product1.isCategory("papetarie"));
         System.out.println("Categoria pentru produsul " + product2.getName() + " este " + product2.isCategory("unelte"));
-        System.out.println("Categoria pentru produsul " + product3.getName() + " este " + product2.isCategory("patiserie"));
+        System.out.println("Categoria pentru produsul " + product3.getName() + " este " + product3.isCategory("patiserie"));
 
 
         //ex 5
